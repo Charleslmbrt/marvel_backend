@@ -2,19 +2,21 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-// https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=NCqzvMmiLmspGMuB
-
 router.get("/comics", (req, res) => {
   try {
     axios
       .get(
-        "https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=process.env.API_KEY"
+        `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}`
       )
       .then((response) => {
         const comicsTab = response.data.results;
-        console.log(comicsTab);
+        // for (let i = 0; i < comicsTab.length; i++) {
+        //   // je boucle sur mon tableau et j'affiche la clef name de chaque objet.
+
+        //   console.log(comicsTab[i].title);
+        // }
+        res.json(comicsTab);
       });
-    res.json("hello");
   } catch (error) {
     console.log(error.message);
   }
