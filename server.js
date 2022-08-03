@@ -19,6 +19,6 @@ app.all("*", (req, res) => {
   res.status(404).json({ error: error.message });
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("Server has started ✌️");
 });
