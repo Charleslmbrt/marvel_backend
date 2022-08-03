@@ -16,8 +16,8 @@ app.use(cors());
 // app.use(comicsRoutes);
 // app.use(characterRoutes);
 
-app.get("/", () => {
-  res.status(400).json({ error: error.message });
+app.get("/", (req, res) => {
+  res.status(400).json("hello");
 });
 
 app.get("/comics", async (req, res) => {
