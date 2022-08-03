@@ -4,19 +4,11 @@ const axios = require("axios");
 
 router.get("/comics", async (req, res) => {
   try {
-    await axios
-      .get(
-        `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}`
-      )
-      .then((response) => {
-        const comicsTab = response.data.results;
-        // for (let i = 0; i < comicsTab.length; i++) {
-        //   // je boucle sur mon tableau et j'affiche la clef name de chaque objet.
+    await axios.get(
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}`
+    );
 
-        //   console.log(comicsTab[i].title);
-        // }
-        res.json(comicsTab);
-      });
+    res.json(response.data);
   } catch (error) {
     console.log(error.message);
   }
