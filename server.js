@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
+const morgan = require("morgan");
 // const mongoose = require("mongoose");
 
 // création serveur
@@ -9,15 +10,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
-// //imports de nos routes
-// const comicsRoutes = require("./routes/comics");
-// const characterRoutes = require("./routes/characters");
-// app.use(comicsRoutes);
-// app.use(characterRoutes);
+app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
-  res.json("hello");
+  res.json("API de Marvel");
 });
 
 app.get("/comics", async (req, res) => {
